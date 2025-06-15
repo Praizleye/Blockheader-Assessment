@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Constants
-    const BUDGET_THRESHOLD = 1000;
+    // Load budget from localStorage or use default
+    let BUDGET_THRESHOLD = parseFloat(localStorage.getItem('budgetThreshold')) || 1000;
     
     // DOM elements
     const expenseForm = document.getElementById('expense-form');
@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const categoryFilter = document.getElementById('category-filter');
     const expensesContainer = document.getElementById('expenses-container');
     const totalAmountElement = document.getElementById('total-amount');
+    const budgetAmountElement = document.getElementById('budget-amount');
+    const editBudgetBtn = document.getElementById('edit-budget');
     const amountErrorElement = document.getElementById('amount-error');
     const progressBar = document.getElementById('progress-bar');
     const budgetWarning = document.getElementById('budget-warning');
@@ -20,6 +22,39 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize the UI
     updateUI();
+    updateBudgetDisplay();
+    
+    // Edit budget button handler
+    editBudgetBtn.addEventListener('click', function() {
+        const currentBudget = BUDGET_THRESHOLD;
+        const newBudget = prompt('Enter new budget amount:', currentBudget);
+        
+        if (newBudget !== null) {
+            const budgetValue = parseFloat(newBudget);
+            
+            if (!isNaN(budgetValue) && budgetValue > 0) {
+                // Update budget
+                BUDGET_THRESHOLD = budgetValue;
+                
+                // Save to localStorage
+                localStorage.setItem('budgetThreshold', BUDGET_THRESHOLD);
+                
+                // Update UI
+                updateBudgetDisplay();
+                updateTotalAmount();
+                
+                // Show success message
+                showNotification('Budget updated successfully!', 'success');
+            } else {
+                showNotification('Please enter a valid budget amount.', 'error');
+            }
+        }
+    });
+    
+    // Function to update budget display
+    function updateBudgetDisplay() {
+        budgetAmountElement.textContent = formatCurrency(BUDGET_THRESHOLD);
+    }
     
     // Add expense form submission handler
     expenseForm.addEventListener('submit', function(e) {
@@ -269,8 +304,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Add this to the end of the existing CSS
-    const notificationStyle = document.createElement('style');
-    notificationStyle.textContent = `
+    const additionalStyle = document.createElement('style');
+    additionalStyle.textContent = `
         .notification {
             position: fixed;
             bottom: 20px;
@@ -305,6 +340,25 @@ document.addEventListener('DOMContentLoaded', function() {
             from { transform: translateX(0); opacity: 1; }
             to { transform: translateX(100%); opacity: 0; }
         }
+        
+        .budget-display {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .edit-btn {
+            background: none;
+            border: none;
+            color: #2980b9;
+            cursor: pointer;
+            padding: 0;
+            font-size: 14px;
+        }
+        
+        .edit-btn:hover {
+            color: #3498db;
+        }
     `;
-    document.head.appendChild(notificationStyle);
+    document.head.appendChild(additionalStyle);
 });
