@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1><i class="fas fa-wallet"></i> Expense Tracker</h1>
+
+        <div class="card budget-status">
+            <div class="budget-info">
+                <div>
+                    <h3>Total Expenses</h3>
+                    <span id="total-amount">$0.00</span>
+                </div>
+                <div>
+                    <h3>Budget</h3>
+                    <span>$1,000.00</span>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div id="budget-warning" class="hidden">
+                <i class="fas fa-exclamation-triangle"></i> Budget exceeded!
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Add Expense</h2>
+            <form id="expense-form">
+                <div class="form-group">
+                    <label for="expense-name">Description</label>
+                    <input type="text" id="expense-name" placeholder="What did you spend on?" required>
+                </div>
+                <div class="form-group">
+                    <label for="expense-amount">Amount ($)</label>
+                    <input type="number" id="expense-amount" placeholder="How much?" min="0.01" step="0.01" required>
+                    <p class="error-message" id="amount-error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="expense-category">Category</label>
+                    <select id="expense-category" required>
+                        <option value="" disabled selected>Select category</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Health">Health</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Add Expense</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <div class="expense-header">
+                <h2>Expenses</h2>
+                <div class="filter-container">
+                    <label for="category-filter">Filter by: </label>
+                    <select id="category-filter">
+                        <option value="All">All Categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Health">Health</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="expenses-container">
+                <div class="no-expenses">No expenses yet. Add some!</div>
+                <!-- Expenses will appear here -->
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Spending Summary</h2>
+            <div id="category-summary">
+                <!-- Category summary will appear here -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

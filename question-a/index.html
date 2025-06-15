@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereum Wallet Validator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Ethereum Wallet Validator</h1>
+            <p class="description">Validate multiple Ethereum wallet addresses at once.</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="input">Enter Ethereum addresses:</label>
+                <textarea id="input" placeholder="Enter addresses (one per line or comma-separated)"
+                    aria-describedby="input-help"></textarea>
+                <p id="input-help" class="help-text">Each address should start with '0x' followed by 40 hexadecimal
+                    characters.</p>
+            </div>
+
+            <div class="examples">
+                <h2>Examples</h2>
+                <p><strong>Valid:</strong>
+                    <code>0x0000000000000000000000000000000000000000, 0x1234567890abcdefABCDEF1234567890abcdefAB</code>
+                </p>
+                <p><strong>Invalid:</strong> <code>0x123, 1234567890abcdefABCDEF1234567890abcdefAB, 0xG234567890abcdefABCDEF1234567890abcdefAB,
+                        0x1234567890abcdefABCDEF1234567890abcdefABCD</code></p>
+            </div>
+
+            <div class="buttons">
+                <button id="validateBtn" class="primary"><i class="fas fa-check-circle"></i> Validate</button>
+                <button id="copyValidBtn"><i class="fas fa-copy"></i> Copy Valid</button>
+                <button id="clearBtn"><i class="fas fa-trash"></i> Clear All</button>
+            </div>
+
+            <div id="validation-summary" class="summary hidden">
+                <p><span id="total-count">0</span> addresses processed:
+                    <span id="valid-count">0</span> valid,
+                    <span id="invalid-count">0</span> invalid
+                </p>
+            </div>
+
+            <div class="results-container">
+                <h2>Results</h2>
+                <ul id="results" aria-live="polite"></ul>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
