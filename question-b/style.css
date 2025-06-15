@@ -252,6 +252,25 @@ input:focus, select:focus {
 .Health { background-color: #FF9F40; }
 .Other { background-color: #C9CBCF; }
 
+/* Back link styling */
+.back-link {
+  display: inline-block;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #2196f3; /* Use your project's primary color */
+}
+
+.back-link i {
+  margin-right: 5px;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .expense-header {

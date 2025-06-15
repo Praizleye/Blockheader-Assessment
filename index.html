@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockheader Assessment</title>
+    <style>
+        :root {
+            --primary-color: #4caf50;
+            --secondary-color: #2196f3;
+            --dark-text: #333;
+            --light-bg: #f9f9f9;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px;
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .projects {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            flex: 1;
+            min-width: 280px;
+            background: #f5f5f5;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h2 {
+            color: var(--dark-text);
+            margin-top: 0;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card.project-a {
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .project-card.project-b {
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #fff;
+            color: var(--dark-text);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid #ddd;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #3d8b40;
+            border-color: #3d8b40;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #1976d2;
+            border-color: #1976d2;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+                padding: 25px;
+            }
+
+            .projects {
+                flex-direction: column;
+            }
+
+            .project-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Blockheader Assessment</h1>
+        <p>Select one of the projects below to view the implementation</p>
+
+        <div class="projects">
+            <div class="project-card project-a">
+                <h2>Question A</h2>
+                <p>Ethereum Wallet Validator - A tool to validate Ethereum wallet addresses.</p>
+                <a href="/question-a" class="btn btn-primary">Open Project A</a>
+            </div>
+
+            <div class="project-card project-b">
+                <h2>Question B</h2>
+                <p>The second project implementation for the assessment.</p>
+                <a href="/question-b" class="btn btn-secondary">Open Project B</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

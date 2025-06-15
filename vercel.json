@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "public": true,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/question-a", "dest": "/question-a/index.html" },
+    { "src": "/question-b", "dest": "/question-b/index.html" }
+  ]
+}
