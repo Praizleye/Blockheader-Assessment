@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "cleanUrls": true,
-  "trailingSlash": false,
   "public": true,
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/question-a", "dest": "/question-a/index.html" },
-    { "src": "/question-b", "dest": "/question-b/index.html" }
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/question-a", "destination": "/question-a/index.html" },
+    { "source": "/question-b", "destination": "/question-b/index.html" }
   ]
 }
